@@ -1,1 +1,5 @@
 <p>cities works!</p>
+
+<ul *ngFor="let city of cities">
+  <li>{{ city.localizedName }} - {{ city.administrativeArea.id }}</li>
+</ul>
