@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { pipe } from 'rxjs';
 import { CitiesService } from './cities.service';
 import { City } from './model/city';
 
@@ -15,8 +16,6 @@ export class CitiesComponent {
   constructor(private citiesService: CitiesService) {}
 
   searchCity() {
-    this.citiesService
-      .searchCity(this.cityName)
-      .subscribe((cities) => (this.cities = cities));
+    this.citiesService.searchCity(this.cityName).subscribe(console.log);
   }
 }

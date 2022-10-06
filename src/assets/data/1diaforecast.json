@@ -1,0 +1,46 @@
+{
+  "Headline": {
+    "EffectiveDate": "2022-10-09T08:00:00-05:00",
+    "EffectiveEpochDate": 1665320400,
+    "Severity": 4,
+    "Text": "Pleasant Sunday",
+    "Category": "mild",
+    "EndDate": null,
+    "EndEpochDate": null,
+    "MobileLink": "http://www.accuweather.com/en/us/preston-mn/55965/daily-weather-forecast/333809?lang=en-us",
+    "Link": "http://www.accuweather.com/en/us/preston-mn/55965/daily-weather-forecast/333809?lang=en-us"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2022-10-06T07:00:00-05:00",
+      "EpochDate": 1665057600,
+      "Temperature": {
+        "Minimum": {
+          "Value": 36,
+          "Unit": "F",
+          "UnitType": 18
+        },
+        "Maximum": {
+          "Value": 58,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Intermittent clouds",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 36,
+        "IconPhrase": "Intermittent clouds",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://www.accuweather.com/en/us/preston-mn/55965/daily-weather-forecast/333809?day=1&lang=en-us",
+      "Link": "http://www.accuweather.com/en/us/preston-mn/55965/daily-weather-forecast/333809?day=1&lang=en-us"
+    }
+  ]
+}

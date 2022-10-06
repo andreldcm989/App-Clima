@@ -4,7 +4,7 @@
 <input [(ngModel)]="cityName" type="text" name="cidade" id="cidade" />
 <button type="button" (click)="searchCity()">Buscar</button>
 <p>{{ cities[0] }}</p>
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Cidade</th>
@@ -13,12 +13,12 @@
       <th>Código</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let city of cities">
+  <tbody *ngFor="let city of cities">
+    <tr>
       <td>{{ city.LocalizedName }}</td>
       <td>{{ city.AdministrativeArea.ID }}</td>
       <td>{{ city.Country.LocalizedName }}</td>
-      <td>{{ city.ParentCity.Key }}</td>
+      <td>{{ city.Key }}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
