@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,7 +8,7 @@ import { SearchModule } from './search/search.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SearchModule],
+  imports: [BrowserModule, AppRoutingModule, SearchModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

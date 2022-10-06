@@ -1,78 +1,78 @@
 export interface Region {
-  id: string;
-  localizedName: string;
-  englishName: string;
+  ID: string;
+  LocalizedName: string;
+  EnglishName: string;
 }
 interface Country {
-  id: string;
-  localizedName: string;
-  englishName: string;
+  ID: string;
+  LocalizedName: string;
+  EnglishName: string;
 }
 
 interface AdministrativeArea {
-  id: string;
-  localizedName: string;
-  englishName: string;
-  level: number;
-  localizedType: string;
-  englishType: string;
-  countryID: string;
+  ID: string;
+  LocalizedName: string;
+  EnglishName: string;
+  Level: number;
+  LocalizedType: string;
+  EnglishType: string;
+  CountryID: string;
 }
 
 interface TimeZone {
-  code: string;
-  name: string;
-  gmtOffset: number;
-  isDaylightSaving: boolean;
-  nextOffsetChange: Date | null;
+  Code: string;
+  Name: string;
+  GmtOffset: number;
+  IsDaylightSaving: boolean;
+  NextOffsetChange: Date | null;
 }
 
 interface GeoPosition {
-  latitude: number;
-  longitude: number;
-  elevation: Elevation;
+  Latitude: number;
+  Longitude: number;
+  Elevation: Elevation;
 }
 
 interface Elevation {
-  metric: Metric;
-  imperial: Imperial;
+  Metric: Metric;
+  Imperial: Imperial;
 }
 interface UnitType {
-  value: number;
-  unit: string;
-  unitType: number;
+  Value: number;
+  Unit: string;
+  UnitType: number;
 }
 
 interface Metric extends UnitType {}
 interface Imperial extends UnitType {}
 
 interface ParentCity {
-  key: string;
-  localizedName: string;
-  englishName: string;
+  Key: string;
+  LocalizedName: string;
+  EnglishName: string;
 }
 
 interface AdminAreas {
-  level: number;
-  localizedName: string;
-  englishName: string;
+  Level: number;
+  LocalizedName: string;
+  EnglishName: string;
 }
 
 export interface City {
-  version: number;
-  key: string;
-  type: string;
-  rank: number;
-  localizedName: string;
-  englishName: string;
-  primaryPostalCode: string;
-  region: Region;
-  country: Country;
-  administrativeArea: AdministrativeArea;
-  timeZone: TimeZone;
-  geoPosition: GeoPosition;
-  isAlias: boolean;
-  parentCity: ParentCity;
-  supplementalAdminAreas: AdminAreas[];
-  dataSets: string[];
+  Version: number;
+  Key: string;
+  Type: string;
+  Rank: number;
+  LocalizedName: string;
+  EnglishName: string;
+  PrimaryPostalCode: string;
+  Region: Region;
+  Country: Country;
+  AdministrativeArea: AdministrativeArea;
+  TimeZone: TimeZone;
+  GeoPosition: GeoPosition;
+  IsAlias: boolean;
+  ParentCity: ParentCity;
+  SupplementalAdminAreas: AdminAreas[];
+  DataSets: string[];
 }
