@@ -1,4 +1,4 @@
-export interface currentCondition {
+export interface forecastPerHour {
   summary: summary;
   forecasts: forecast[];
 }

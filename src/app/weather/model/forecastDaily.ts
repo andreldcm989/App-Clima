@@ -1,4 +1,5 @@
 export interface forecastPerDay {
+  summary: summary;
   forecasts: forecast[];
 }
 
