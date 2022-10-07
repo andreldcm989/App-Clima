@@ -1,7 +1,6 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { CitiesService } from './cities.service';
-import { City, results } from './model/city';
+import { results } from './model/city';
 
 @Component({
   selector: 'app-cities',
@@ -21,6 +20,15 @@ export class CitiesComponent {
     });
   }
 
+  findCities() {
+    let cities = localStorage.getItem('tbFavoritesCities');
+    if (!cities) {
+      this.savedCities = [];
+    } else {
+      this.savedCities = JSON.parse(cities);
+    }
+  }
+
   addCityOnSavedCities(index: number): void {
     let city = this.cities[index];
     this.savedCities.push(city);
@@ -29,12 +37,8 @@ export class CitiesComponent {
   }
 
   removeCityOnSavedCities(index: number): void {
-    let cities = localStorage.getItem('tbFavoriteCities');
-    if (cities == null) {
-      this.savedCities = [];
-    } else {
-      this.savedCities = JSON.parse(cities);
-    }
+    this.savedCities.splice(index, 1);
+    localStorage.setItem('tbFavoritesCities', JSON.stringify(this.savedCities));
   }
 
   clearListCities(): void {

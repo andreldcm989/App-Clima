@@ -1,4 +1,4 @@
-.cidade {
+.city {
   width: 200px;
   height: 40px;
   border: 1px solid black;
@@ -6,4 +6,10 @@
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+}
+
+input {
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid grey;
 }
