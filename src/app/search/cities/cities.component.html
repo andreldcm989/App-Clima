@@ -1,35 +1,50 @@
-<p>cities works!</p>
+<header class="header">
+  <div class="logo">
+    <h1>Clima Agora</h1>
+  </div>
+  <div class="search">
+    <input
+      [(ngModel)]="cityName"
+      type="text"
+      name="city"
+      id="city"
+      (keyup)="clearListCities()"
+      placeholder="Digite aqui a cidade"
+    />
+    <button type="button" (keyup.Enter)="searchCity()" (click)="searchCity()">
+      Buscar
+    </button>
+  </div>
+</header>
 
-<div class="teste">
-  <label for="cidade">Digite a cidade: </label>
-  <input
-    [(ngModel)]="cityName"
-    type="text"
-    name="cidade"
-    id="cidade"
-    (keyup)="clearListCities()"
-  />
-  <button type="button" (click)="searchCity()">Buscar</button>
-</div>
-
-<div class="cities" *ngIf="cities.length > 0">
-  <h2>Cidades encontradas:</h2>
-  <ul *ngFor="let city of cities; let index = index">
-    <li (click)="addCityOnSavedCities(index)">
-      <div class="city">
-        {{ city.address.municipality }}, {{ city.address.countrySubdivision }}
-      </div>
-    </li>
-  </ul>
-</div>
-
-<div class="savedCities" *ngIf="savedCities.length > 0">
-  <h2>Minhas cidades favoritas:</h2>
-  <ul *ngFor="let city of savedCities; let index = index">
-    <li>
-      <div class="city">
-        {{ city.address.municipality }}, {{ city.address.countrySubdivision }}
-      </div>
-    </li>
-  </ul>
+<div class="content">
+  <div class="cities grid-item">
+    <h2>Resultado da busca</h2>
+    <ul *ngIf="cities.length > 0">
+      <li
+        *ngFor="let city of cities; let index = index"
+        (click)="addCityOnSavedCities(index)"
+      >
+        <div class="city">
+          {{ city.address.municipality }} -
+          {{ city.address.countrySubdivision }},
+          {{ city.address.countryCode }}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="saved-cities grid-item" *ngIf="savedCities.length > 0">
+    <h2>Favoritos</h2>
+    <ul *ngFor="let city of savedCities; let index = index">
+      <li>
+        <div class="city">
+          {{ city.address.municipality }} -
+          {{ city.address.countrySubdivision }},
+          {{ city.address.countryCode }}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="now grid-item">Tempo agora</div>
+  <div class="next-days grid-item">Próximos dias</div>
 </div>

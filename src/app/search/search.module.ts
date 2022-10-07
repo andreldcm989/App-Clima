@@ -9,5 +9,6 @@ import { SearchRoutingModule } from './search-routing.module';
   declarations: [CitiesComponent],
   imports: [CommonModule, SearchRoutingModule, FormsModule],
   providers: [],
+  exports: [CitiesComponent],
 })
 export class SearchModule {}

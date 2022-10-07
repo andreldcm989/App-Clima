@@ -12,7 +12,9 @@ export class CitiesComponent {
   savedCities: results[] = [];
   cityName = '';
 
-  constructor(private citiesService: CitiesService) {}
+  constructor(private citiesService: CitiesService) {
+    this.findSavedCities();
+  }
 
   searchCity() {
     return this.citiesService.searchCity(this.cityName).subscribe((res) => {
@@ -20,7 +22,7 @@ export class CitiesComponent {
     });
   }
 
-  findCities() {
+  findSavedCities() {
     let cities = localStorage.getItem('tbFavoritesCities');
     if (!cities) {
       this.savedCities = [];
