@@ -33,10 +33,13 @@
       </li>
     </ul>
   </div>
-  <div class="saved-cities grid-item" *ngIf="savedCities.length > 0">
+  <div class="saved-cities grid-item">
     <h2>Favoritos</h2>
-    <ul *ngFor="let city of savedCities; let index = index">
-      <li>
+    <ul *ngIf="savedCities.length > 0">
+      <li
+        *ngFor="let city of savedCities; let index = index"
+        (click)="removeCityOnSavedCities(index)"
+      >
         <div class="city">
           {{ city.address.municipality }} -
           {{ city.address.countrySubdivision }},

@@ -34,14 +34,16 @@
   border: 3px solid #ffffff;
   border-radius: 15px;
   display: grid;
-  grid-template-areas:
-    "cities now now now  next-days next-days"
-    "saved-cities now now now next-days next-days";
+  grid:
+    "cities now now now  next-days next-days" 200px
+    "saved-cities now now now next-days next-days" 200px;
   gap: 25px;
 }
 
 .cities {
   grid-area: cities;
+  height: 100%;
+  overflow: auto;
 }
 
 .now {
@@ -50,6 +52,8 @@
 
 .saved-cities {
   grid-area: saved-cities;
+  height: 100%;
+  overflow: auto;
 }
 
 .next-days {
