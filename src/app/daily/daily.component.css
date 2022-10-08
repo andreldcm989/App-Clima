@@ -1,3 +1,69 @@
-li {
-  list-style-type: none;
+details[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 100%;
+  border-top: 1px solid black;
+  position: relative;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  list-style: none;
+}
+
+details summary:after {
+  transition: 0.2s all ease-in-out;
+}
+details[open] summary:after {
+  transform: rotate(45deg);
+  font-size: 2rem;
+}
+details summary {
+  outline: 0;
+}
+details p {
+  font-size: 0.7rem;
+  margin: 5px;
+}
+
+.card-item {
+  margin: 5px;
+  padding: 5px;
+  width: 220px;
+  min-height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: flex-grow 0.3s linear, background-color 0.2s ease-in;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+:hover {
+  flex-grow: 3;
 }

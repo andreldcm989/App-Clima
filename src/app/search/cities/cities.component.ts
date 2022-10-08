@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { currentCondition } from 'src/app/weather/model/currentCondition';
 import { CitiesService } from './cities.service';
 import { results } from './model/city';
 
@@ -12,7 +11,6 @@ export class CitiesComponent {
   cities: results[] = [];
   savedCities: results[] = [];
   cityName = '';
-  currentCondition!: currentCondition;
 
   constructor(private citiesService: CitiesService) {
     this.findSavedCities();
@@ -56,7 +54,9 @@ export class CitiesComponent {
     this.cityName.length < 3 ? (this.cities = []) : null;
   }
 
-  getCurrentCondition(event: any) {
-    console.log(event);
+  selectedCity(index: number) {
+    this.cities = this.cities.filter(
+      (city) => this.cities.indexOf(city) == index
+    );
   }
 }

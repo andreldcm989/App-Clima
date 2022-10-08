@@ -24,7 +24,10 @@
     <div class="card-lists">
       <h3 class="card-lists-title">Resultado da busca</h3>
       <ul *ngIf="cities.length > 0; else listIsEmpty">
-        <li *ngFor="let city of cities; let index = index">
+        <li
+          *ngFor="let city of cities; let index = index"
+          (click)="selectedCity(index)"
+        >
           <div
             class="city"
             (click)="currentCondition.searchCurrentCondition(city)"

@@ -6,10 +6,10 @@ import { dailyForecast } from '../weather/model/dailyForecast';
   templateUrl: './daily.component.html',
   styleUrls: ['./daily.component.css'],
 })
-export class DailyComponent implements OnInit {
+export class DailyComponent {
   @Input() dailyForecast!: dailyForecast;
-
+  panelOpenState: boolean = false;
   constructor() {}
 
-  ngOnInit(): void {}
+  closeCard() {}
 }

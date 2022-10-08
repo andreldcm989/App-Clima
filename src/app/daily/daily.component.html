@@ -1,9 +1,17 @@
-<div class="card-daily" *ngIf="dailyForecast">
-  <ul>
-    <li *ngFor="let daily of dailyForecast.forecasts">
+<section>
+  <details *ngFor="let daily of dailyForecast.forecasts" class="card-item">
+    <summary>
       {{ daily.date | date: "EEE" }} - {{ daily.date | date: "dd/MM" }}, min:
       {{ daily.temperature.minimum.value }}°, máx:
       {{ daily.temperature.maximum.value }}°
-    </li>
-  </ul>
-</div>
+    </summary>
+    <p>
+      <strong>Dia: </strong>{{ daily.day.shortPhrase }}, possibilidade de chuva:
+      {{ daily.day.precipitationProbability }}%.
+    </p>
+    <p>
+      <strong>Noite: </strong>{{ daily.night.shortPhrase }}, possibilidade de
+      chuva: {{ daily.night.precipitationProbability }}%.
+    </p>
+  </details>
+</section>
