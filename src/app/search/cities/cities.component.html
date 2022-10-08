@@ -25,7 +25,10 @@
       <h3 class="card-lists-title">Resultado da busca</h3>
       <ul *ngIf="cities.length > 0; else listIsEmpty">
         <li *ngFor="let city of cities; let index = index">
-          <div class="city">
+          <div
+            class="city"
+            (click)="currentCondition.searchCurrentCondition(city)"
+          >
             {{ city.address.municipality }} -
             {{ city.address.countrySubdivision }},
             {{ city.address.countryCode }}
@@ -45,7 +48,7 @@
       <ul *ngIf="savedCities.length > 0; else favEmpty">
         <li
           *ngFor="let city of savedCities; let index = index"
-          (click)="setCityObj(index)"
+          (click)="currentCondition.searchCurrentCondition(city)"
         >
           <div class="city">
             {{ city.address.municipality }} -
@@ -69,10 +72,7 @@
   <section class="card-group card-full">
     <div class="now grid-item">
       <p>Tempo agora</p>
-      <app-weather
-        [cityObj]="cityObj"
-        (weather)="getCurrentCondition($event)"
-      ></app-weather>
+      <app-weather #currentCondition></app-weather>
     </div>
   </section>
   <section class="card-group card-full">

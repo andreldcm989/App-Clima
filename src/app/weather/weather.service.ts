@@ -17,7 +17,6 @@ export class WeatherService {
     let params = new HttpParams();
     params = params.set('subscription-key', this.apikey);
     params = params.set('query', location.toString());
-    console.log(params);
     return this.http.get<currentCondition>(this.API, { params });
   }
 }

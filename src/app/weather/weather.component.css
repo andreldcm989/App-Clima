@@ -1,0 +1,23 @@
+.card-current {
+  max-width: 250px;
+  min-width: 250px;
+  max-height: 160px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.2s all ease-in-out;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card-lists:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+img {
+  background: transparent;
+}

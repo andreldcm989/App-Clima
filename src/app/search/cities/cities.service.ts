@@ -18,7 +18,6 @@ export class CitiesService {
     let params = new HttpParams();
     params = params.set('subscription-key', this.apikey);
     params = params.set('query', cityName);
-    console.log(params);
     return this.http.get<City>(this.API, { params });
   }
 }

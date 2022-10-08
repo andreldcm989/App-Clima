@@ -10,7 +10,6 @@ import { results } from './model/city';
 })
 export class CitiesComponent {
   cities: results[] = [];
-  cityObj!: results;
   savedCities: results[] = [];
   cityName = '';
   currentCondition!: currentCondition;
@@ -44,7 +43,6 @@ export class CitiesComponent {
       return;
     }
     this.savedCities.push(city);
-    this.setCityObj(index);
     localStorage.setItem('tbFavoritesCities', JSON.stringify(this.savedCities));
     alert('Cidade adicionada aos favoritos!');
   }
@@ -58,12 +56,7 @@ export class CitiesComponent {
     this.cityName.length < 3 ? (this.cities = []) : null;
   }
 
-  getCurrentCondition(event: Event) {
+  getCurrentCondition(event: any) {
     console.log(event);
-  }
-
-  setCityObj(index: number) {
-    let city = this.cities[index];
-    this.cityObj = city;
   }
 }

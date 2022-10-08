@@ -9,18 +9,17 @@ import { WeatherService } from './weather.service';
   styleUrls: ['./weather.component.css'],
 })
 export class WeatherComponent {
-  @Input() cityObj!: results;
-  @Output() weather = new EventEmitter();
+  cityObj!: results;
   currentCondition!: currentCondition;
 
   constructor(private service: WeatherService) {}
 
-  searchCurrentCondition() {
-    let locale = `${this.cityObj.position.lat},${this.cityObj.position.lon}`;
-    console.log(this.cityObj);
-    this.service.searchCurrencyCondition(locale).subscribe((res) => {
+  searchCurrentCondition(city: results) {
+    let locale = `${city.position.lat},${city.position.lon}`;
+    return this.service.searchCurrencyCondition(locale).subscribe((res) => {
+      console.log(typeof res);
       this.currentCondition = res;
-      console.log(this.currentCondition);
+      this.cityObj = city;
     });
   }
 }

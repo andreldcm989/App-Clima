@@ -1,4 +1,8 @@
 export interface currentCondition {
+  results: results[];
+}
+
+interface results {
   dateTime: string;
   phrase: string;
   iconCode: number;
