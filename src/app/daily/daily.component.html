@@ -1,0 +1,9 @@
+<div class="card-daily" *ngIf="dailyForecast">
+  <ul>
+    <li *ngFor="let daily of dailyForecast.forecasts">
+      {{ daily.date | date: "EEE" }} - {{ daily.date | date: "dd/MM" }}, min:
+      {{ daily.temperature.minimum.value }}°, máx:
+      {{ daily.temperature.maximum.value }}°
+    </li>
+  </ul>
+</div>

@@ -77,6 +77,10 @@
   </section>
   <section class="card-group card-full">
     <div>Próximos dias</div>
+    <app-daily
+      #daily
+      [dailyForecast]="currentCondition.dailyForecast"
+    ></app-daily>
   </section>
 </div>
 <ng-template #listIsEmpty>

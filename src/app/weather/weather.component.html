@@ -6,12 +6,3 @@
     Hora: {{ currentCondition.results[0].dateTime | date: "dd/MM/yyyy HH:mm" }}
   </p>
 </div>
-<div class="card-current" *ngIf="cityObj">
-  <ul>
-    <li *ngFor="let daily of dailyForecast.forecasts">
-      {{ daily.date | date: "EEE" }} - {{ daily.date | date: "dd/MM" }}, minima:
-      {{ daily.temperature.minimum.value }}°, máxima:
-      {{ daily.temperature.maximum.value }}°
-    </li>
-  </ul>
-</div>
