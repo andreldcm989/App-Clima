@@ -1,1 +1,6 @@
 <p>weather works!</p>
+<div *ngIf="cityObj">
+  <p>{{ cityObj.position.lat }}</p>
+  <p>{{ cityObj.position.lon }}</p>
+</div>
+<button type="button" (click)="searchCurrentCondition()">Teste</button>

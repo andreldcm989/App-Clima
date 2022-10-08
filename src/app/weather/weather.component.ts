@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { results } from '../search/cities/model/city';
+import { currentCondition } from './model/currentCondition';
 import { WeatherService } from './weather.service';
 
 @Component({
@@ -6,11 +8,19 @@ import { WeatherService } from './weather.service';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
-export class WeatherComponent implements OnInit {
-  constructor(private service: WeatherService) {
-    let locale = '-18.90971,-48.26192';
-    this.service.getCurrencyCondition(locale);
-  }
+export class WeatherComponent {
+  @Input() cityObj!: results;
+  @Output() weather = new EventEmitter();
+  currentCondition!: currentCondition;
 
-  ngOnInit(): void {}
+  constructor(private service: WeatherService) {}
+
+  searchCurrentCondition() {
+    let locale = `${this.cityObj.position.lat},${this.cityObj.position.lon}`;
+    console.log(this.cityObj);
+    this.service.searchCurrencyCondition(locale).subscribe((res) => {
+      this.currentCondition = res;
+      console.log(this.currentCondition);
+    });
+  }
 }

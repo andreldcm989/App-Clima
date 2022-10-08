@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { City } from './model/city';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class CitiesService {
     let params = new HttpParams();
     params = params.set('subscription-key', this.apikey);
     params = params.set('query', cityName);
+    console.log(params);
     return this.http.get<City>(this.API, { params });
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { currentCondition } from 'src/app/weather/model/currentCondition';
 import { CitiesService } from './cities.service';
 import { results } from './model/city';
 
@@ -9,8 +10,10 @@ import { results } from './model/city';
 })
 export class CitiesComponent {
   cities: results[] = [];
+  cityObj!: results;
   savedCities: results[] = [];
   cityName = '';
+  currentCondition!: currentCondition;
 
   constructor(private citiesService: CitiesService) {
     this.findSavedCities();
@@ -29,13 +32,21 @@ export class CitiesComponent {
     } else {
       this.savedCities = JSON.parse(cities);
     }
+    return this.savedCities;
   }
 
   addCityOnSavedCities(index: number): void {
     let city = this.cities[index];
+    this.savedCities = this.findSavedCities();
+    let tem = this.savedCities.filter((res) => res.id == city.id);
+    if (tem.length > 0) {
+      alert('Esta cidade já existe nos favoritos.');
+      return;
+    }
     this.savedCities.push(city);
+    this.setCityObj(index);
     localStorage.setItem('tbFavoritesCities', JSON.stringify(this.savedCities));
-    alert('Registro salvo com sucesso!');
+    alert('Cidade adicionada aos favoritos!');
   }
 
   removeCityOnSavedCities(index: number): void {
@@ -45,5 +56,14 @@ export class CitiesComponent {
 
   clearListCities(): void {
     this.cityName.length < 3 ? (this.cities = []) : null;
+  }
+
+  getCurrentCondition(event: Event) {
+    console.log(event);
+  }
+
+  setCityObj(index: number) {
+    let city = this.cities[index];
+    this.cityObj = city;
   }
 }

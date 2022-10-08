@@ -10,50 +10,79 @@
       id="city"
       (keyup)="clearListCities()"
       placeholder="Digite aqui a cidade"
+      #search
+      (keyup.enter)="searchCity()"
     />
-    <button type="button" (keyup.Enter)="searchCity()" (click)="searchCity()">
-      Buscar
+    <button type="button" (click)="searchCity()" class="search-button">
+      <img src="../../../assets/icons/pesquisa-de-lupa.png" width="20px" />
     </button>
   </div>
 </header>
 
 <div class="content">
-  <div class="cities grid-item">
-    <h2>Resultado da busca</h2>
-    <ul *ngIf="cities.length > 0">
-      <li
-        *ngFor="let city of cities; let index = index"
-        (click)="addCityOnSavedCities(index)"
-      >
-        <div class="city">
-          {{ city.address.municipality }} -
-          {{ city.address.countrySubdivision }},
-          {{ city.address.countryCode }}
-          {{ city.address.countryCode }}
-          {{ city.position.lat }}
-          {{ city.position.lon }}
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="saved-cities grid-item">
-    <h2>Favoritos</h2>
-    <ul *ngIf="savedCities.length > 0">
-      <li
-        *ngFor="let city of savedCities; let index = index"
-        (click)="removeCityOnSavedCities(index)"
-      >
-        <div class="city">
-          {{ city.address.municipality }} -
-          {{ city.address.countrySubdivision }},
-          {{ city.address.countryCode }}
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="now grid-item">
-    <p>Tempo agora</p>
-    <app-weather></app-weather>
-  </div>
-  <div class="next-days grid-item">Próximos dias</div>
+  <section class="card-group">
+    <div class="card-lists">
+      <h3 class="card-lists-title">Resultado da busca</h3>
+      <ul *ngIf="cities.length > 0; else listIsEmpty">
+        <li *ngFor="let city of cities; let index = index">
+          <div class="city">
+            {{ city.address.municipality }} -
+            {{ city.address.countrySubdivision }},
+            {{ city.address.countryCode }}
+            <button
+              type="button"
+              class="city-add"
+              (click)="addCityOnSavedCities(index)"
+            >
+              <img src="../../../assets/icons/add.png" width="25px" />
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-lists">
+      <h3 class="card-lists-title">Locais Salvos</h3>
+      <ul *ngIf="savedCities.length > 0; else favEmpty">
+        <li
+          *ngFor="let city of savedCities; let index = index"
+          (click)="setCityObj(index)"
+        >
+          <div class="city">
+            {{ city.address.municipality }} -
+            {{ city.address.countrySubdivision }},
+            {{ city.address.countryCode }}
+            <button
+              type="button"
+              class="city-delete"
+              (click)="removeCityOnSavedCities(index)"
+            >
+              <img
+                src="../../../assets/icons/lixeira-de-reciclagem.png"
+                width="15px"
+              />
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="card-group card-full">
+    <div class="now grid-item">
+      <p>Tempo agora</p>
+      <app-weather
+        [cityObj]="cityObj"
+        (weather)="getCurrentCondition($event)"
+      ></app-weather>
+    </div>
+  </section>
+  <section class="card-group card-full">
+    <div class="next-days grid-item">Próximos dias</div>
+  </section>
 </div>
+<ng-template #listIsEmpty>
+  <p>O resultado da sua busca aparecerá aqui!</p>
+</ng-template>
+<ng-template class="empty" #favEmpty>
+  <p>Nada aqui...</p>
+  <img src="../../../assets/icons/sono.png" width="50px" />
+</ng-template>
