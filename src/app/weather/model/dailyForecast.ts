@@ -1,4 +1,4 @@
-export interface forecastPerHour {
+export interface dailyForecast {
   summary: summary;
   forecasts: forecast[];
 }
