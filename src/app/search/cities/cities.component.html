@@ -22,32 +22,38 @@
 <div class="content">
   <section class="card-group">
     <div class="card-lists">
-      <h3 class="card-lists-title"><strong>Resultado da busca</strong></h3>
-      <ul *ngIf="cities.length > 0; else listIsEmpty">
-        <li
-          *ngFor="let city of cities; let index = index"
-          (click)="selectedCity(index)"
-        >
-          <div
-            class="city"
-            (click)="currentCondition.searchCurrentCondition(city)"
+      <header class="card-header">
+        <h3 class="card-lists-title"><strong>Resultado da busca</strong></h3>
+      </header>
+      <div class="card-content">
+        <ul *ngIf="cities.length > 0; else listIsEmpty">
+          <li
+            *ngFor="let city of cities; let index = index"
+            (click)="selectedCity(index)"
           >
-            {{ city.address.municipality }} -
-            {{ city.address.countrySubdivision }},
-            {{ city.address.countryCode }}
-            <button
-              type="button"
-              class="city-add"
-              (click)="addCityOnSavedCities(index)"
+            <div
+              class="city"
+              (click)="currentCondition.searchCurrentCondition(city)"
             >
-              <img src="../../../assets/icons/add.png" width="25px" />
-            </button>
-          </div>
-        </li>
-      </ul>
+              {{ city.address.municipality }} -
+              {{ city.address.countrySubdivision }},
+              {{ city.address.countryCode }}
+              <button
+                type="button"
+                class="city-add"
+                (click)="addCityOnSavedCities(index)"
+              >
+                <img src="../../../assets/icons/add.png" width="20px" />
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="card-lists">
-      <h3 class="card-lists-title"><strong>Locais salvos</strong></h3>
+      <header class="card-header">
+        <h3 class="card-lists-title"><strong>Locais Salvos</strong></h3>
+      </header>
       <ul *ngIf="savedCities.length > 0; else favEmpty">
         <li
           *ngFor="let city of savedCities; let index = index"
@@ -73,15 +79,17 @@
     </div>
   </section>
   <section class="card-group card-full">
-    <h3><strong>Tempo agora</strong></h3>
+    <header class="card-header">
+      <h3 class="card-lists-title"><strong>Tempo Agora</strong></h3>
+    </header>
     <div>
       <app-weather #currentCondition></app-weather>
     </div>
   </section>
   <section class="card-group card-full">
-    <div>
-      <h3><strong>Próximos dias</strong></h3>
-    </div>
+    <header class="card-header">
+      <h3 class="card-lists-title"><strong>Próximos dias</strong></h3>
+    </header>
     <app-daily
       #daily
       [dailyForecast]="currentCondition.dailyForecast"
@@ -100,7 +108,6 @@
     Aqui você fica sabendo como está o clima na cidade desejada. Busque uma
     cidade na barra de pesquisas e comece!
   </p>
-  <img src="../../../assets/icons/sono.png" width="50px" />
 </ng-template>
 <ng-template class="empty" #nextDays>
   <p>
