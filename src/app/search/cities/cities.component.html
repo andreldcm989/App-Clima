@@ -2,6 +2,7 @@
   <div class="logo">Clima Agora</div>
   <div class="search">
     <input
+      #input
       [(ngModel)]="cityName"
       type="text"
       name="city"
@@ -9,10 +10,14 @@
       (keyup)="clearListCities()"
       placeholder="Digite aqui a cidade"
       #search
-      (keyup.enter)="searchCity($event)"
+      (keyup.enter)="searchCity(input.value)"
       required
     />
-    <button type="button" (click)="searchCity($event)" class="search-button">
+    <button
+      type="button"
+      (click)="searchCity(input.value)"
+      class="search-button"
+    >
       <img src="../../../assets/icons/pesquisa-de-lupa.png" width="20px" />
     </button>
   </div>
