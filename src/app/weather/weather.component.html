@@ -1,5 +1,10 @@
 <div class="card-current" *ngIf="cityObj">
-  <img [src]="srcIcon" [alt]="srcIcon" srcset="" width="60px" />
+  <img
+    [src]="srcIcon"
+    alt="icone do clima"
+    width="60px"
+    [title]="currentCondition.results[0].phrase"
+  />
   <p>
     {{ cityObj.address.municipality }} -
     {{ cityObj.address.countrySubdivision }}
