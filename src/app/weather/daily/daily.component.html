@@ -5,7 +5,7 @@
   >
     <input type="radio" name="radio-a" id="check{{ index }}" checked />
     <label class="accordion-label" for="check{{ index }}">
-      {{ daily.date | date: "EEE" }} - {{ daily.date | date: "dd/MM" }}, min:
+      {{ daily.date | date: "E" }} - {{ daily.date | date: "dd/MM" }}, min:
       {{ daily.temperature.minimum.value }}°, máx:
       {{ daily.temperature.maximum.value }}°
     </label>

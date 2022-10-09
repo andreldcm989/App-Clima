@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { dailyForecast } from '../weather/model/dailyForecast';
+import { dailyForecast } from '../model/dailyForecast';
 
 @Component({
   selector: 'app-daily',
