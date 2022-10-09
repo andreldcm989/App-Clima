@@ -9,7 +9,9 @@ import { dailyForecast } from '../weather/model/dailyForecast';
 export class DailyComponent {
   @Input() dailyForecast!: dailyForecast;
   panelOpenState: boolean = false;
-  constructor() {}
+  mouseOver: boolean = false;
 
-  closeCard() {}
+  onMouseOverOut() {
+    this.mouseOver = !this.mouseOver;
+  }
 }

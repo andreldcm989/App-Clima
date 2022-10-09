@@ -1,8 +1,38 @@
 <div class="card-current" *ngIf="cityObj">
   <img src="../../assets/icons/1.gif" alt="" srcset="" width="60px" />
-  <p>{{ cityObj.address.municipality }}</p>
-  <p>{{ currentCondition.results[0].temperature.value }}°</p>
+  <p>
+    {{ cityObj.address.municipality }} -
+    {{ cityObj.address.countrySubdivision }}
+  </p>
+  <p>
+    {{ currentCondition.results[0].temperature.value }}° -
+    {{ currentCondition.results[0].phrase }}
+  </p>
   <p>
     Hora: {{ currentCondition.results[0].dateTime | date: "dd/MM/yyyy HH:mm" }}
+  </p>
+</div>
+<div class="card-current" *ngIf="cityObj">
+  <h3><strong>Mais informações</strong></h3>
+  <p>
+    <strong>Umidade do ar: </strong>
+    {{ currentCondition.results[0].relativeHumidity }}%
+  </p>
+  <p>
+    <strong>Visibilidade: </strong>
+    {{ currentCondition.results[0].visibility.value }}
+    {{ currentCondition.results[0].visibility.unit }}
+  </p>
+  <p>
+    <strong>Raios UV: </strong>
+    {{ currentCondition.results[0].uvIndex }} -
+    {{ currentCondition.results[0].uvIndexPhrase }}
+  </p>
+  <p>
+    <strong>Vento: </strong>
+    {{ currentCondition.results[0].wind.speed.value }}
+    {{ currentCondition.results[0].wind.speed.unit }} -
+    {{ currentCondition.results[0].wind.direction.degrees }}
+    {{ currentCondition.results[0].wind.direction.localizedDescription }}
   </p>
 </div>

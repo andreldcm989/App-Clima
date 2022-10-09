@@ -1,17 +1,23 @@
-<section>
-  <details *ngFor="let daily of dailyForecast.forecasts" class="card-item">
-    <summary>
+<div class="accordion-wrapper">
+  <div
+    class="accordion"
+    *ngFor="let daily of dailyForecast.forecasts; let index = index"
+  >
+    <input type="radio" name="radio-a" id="check{{ index }}" checked />
+    <label class="accordion-label" for="check{{ index }}">
       {{ daily.date | date: "EEE" }} - {{ daily.date | date: "dd/MM" }}, min:
       {{ daily.temperature.minimum.value }}°, máx:
       {{ daily.temperature.maximum.value }}°
-    </summary>
-    <p>
-      <strong>Dia: </strong>{{ daily.day.shortPhrase }}, possibilidade de chuva:
-      {{ daily.day.precipitationProbability }}%.
-    </p>
-    <p>
-      <strong>Noite: </strong>{{ daily.night.shortPhrase }}, possibilidade de
-      chuva: {{ daily.night.precipitationProbability }}%.
-    </p>
-  </details>
-</section>
+    </label>
+    <div class="accordion-content">
+      <p>
+        <strong>Dia: </strong>{{ daily.day.shortPhrase }}, possibilidade de
+        chuva: {{ daily.day.precipitationProbability }}%.
+      </p>
+      <p>
+        <strong>Noite: </strong>{{ daily.night.shortPhrase }}, possibilidade de
+        chuva: {{ daily.night.precipitationProbability }}%.
+      </p>
+    </div>
+  </div>
+</div>

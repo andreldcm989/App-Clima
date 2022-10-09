@@ -16,7 +16,8 @@ export class CitiesComponent {
     this.findSavedCities();
   }
 
-  searchCity() {
+  searchCity(event: Event) {
+    console.log(event);
     return this.citiesService.searchCity(this.cityName).subscribe((res) => {
       this.cities = res.results;
     });

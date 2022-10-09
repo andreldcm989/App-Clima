@@ -1,69 +1,71 @@
-details[open] summary ~ * {
-  animation: open 0.3s ease-in-out;
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
 }
-
-@keyframes open {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.accordion-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  width: 240px;
+  margin: 0 auto;
 }
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-details summary {
-  width: 100%;
-  border-top: 1px solid black;
+.accordion {
   position: relative;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: bold;
-  list-style: none;
+  width: 100%;
+  color: #000000;
+  overflow: hidden;
+  margin-bottom: 5px;
+  background: rgba(143, 199, 238, 0.8);
+  transition: 0.3s all ease-in-out;
 }
-
-details summary:after {
-  transition: 0.2s all ease-in-out;
+.accordion:last-child {
+  margin-bottom: 0;
 }
-details[open] summary:after {
-  transform: rotate(45deg);
-  font-size: 2rem;
-}
-details summary {
-  outline: 0;
-}
-details p {
-  font-size: 0.7rem;
-  margin: 5px;
-}
-
-.card-item {
-  margin: 5px;
-  padding: 5px;
-  width: 220px;
-  min-height: 40px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background: #ffffff;
+.accordion-label {
   display: flex;
-  align-items: center;
+  -webkit-box-pack: justify;
   justify-content: space-between;
-  text-align: center;
-  font-size: 0.8rem;
+  padding: 5px;
   cursor: pointer;
-  transition: flex-grow 0.3s linear, background-color 0.2s ease-in;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.accordion-label:hover {
+  background: rgba(4, 57, 94, 1);
+  color: #ffffff;
 }
 
-:hover {
-  flex-grow: 3;
+.accordion-label::after {
+  content: "\276F";
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-content {
+  max-height: 0;
+  padding: 0 8px;
+  color: rgba(4, 57, 94, 1);
+  background: white;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.accordion-content p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+input:checked + .accordion-label {
+  background: rgba(4, 57, 94, 1);
+  color: #ffffff;
+}
+input:checked + .accordion-label::after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+input:checked ~ .accordion-content {
+  max-height: 100vh;
+  padding: 5px;
 }

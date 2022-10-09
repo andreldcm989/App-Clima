@@ -1,7 +1,5 @@
 <header class="header">
-  <div class="logo">
-    <h1>Clima Agora</h1>
-  </div>
+  <div class="logo">Clima Agora</div>
   <div class="search">
     <input
       [(ngModel)]="cityName"
@@ -11,9 +9,10 @@
       (keyup)="clearListCities()"
       placeholder="Digite aqui a cidade"
       #search
-      (keyup.enter)="searchCity()"
+      (keyup.enter)="searchCity($event)"
+      required
     />
-    <button type="button" (click)="searchCity()" class="search-button">
+    <button type="button" (click)="searchCity($event)" class="search-button">
       <img src="../../../assets/icons/pesquisa-de-lupa.png" width="20px" />
     </button>
   </div>
@@ -22,7 +21,7 @@
 <div class="content">
   <section class="card-group">
     <div class="card-lists">
-      <h3 class="card-lists-title">Resultado da busca</h3>
+      <h3 class="card-lists-title"><strong>Resultado da busca</strong></h3>
       <ul *ngIf="cities.length > 0; else listIsEmpty">
         <li
           *ngFor="let city of cities; let index = index"
@@ -47,7 +46,7 @@
       </ul>
     </div>
     <div class="card-lists">
-      <h3 class="card-lists-title">Locais Salvos</h3>
+      <h3 class="card-lists-title"><strong>Locais salvos</strong></h3>
       <ul *ngIf="savedCities.length > 0; else favEmpty">
         <li
           *ngFor="let city of savedCities; let index = index"
@@ -73,13 +72,15 @@
     </div>
   </section>
   <section class="card-group card-full">
+    <h3><strong>Tempo agora</strong></h3>
     <div>
-      <p>Tempo agora</p>
       <app-weather #currentCondition></app-weather>
     </div>
   </section>
   <section class="card-group card-full">
-    <div>Próximos dias</div>
+    <div>
+      <h3><strong>Próximos dias</strong></h3>
+    </div>
     <app-daily
       #daily
       [dailyForecast]="currentCondition.dailyForecast"
@@ -92,4 +93,17 @@
 <ng-template class="empty" #favEmpty>
   <p>Nada aqui...</p>
   <img src="../../../assets/icons/sono.png" width="50px" />
+</ng-template>
+<ng-template class="empty" #now>
+  <p>
+    Aqui você fica sabendo como está o clima na cidade desejada. Busque uma
+    cidade na barra de pesquisas e comece!
+  </p>
+  <img src="../../../assets/icons/sono.png" width="50px" />
+</ng-template>
+<ng-template class="empty" #nextDays>
+  <p>
+    Acompanhe aqui a previsão do tempo para os próximos dias e evite surpesas
+    indesejadas!
+  </p>
 </ng-template>

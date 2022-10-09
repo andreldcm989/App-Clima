@@ -19,7 +19,6 @@ export class WeatherComponent {
   searchCurrentCondition(city: results) {
     let locale = `${city.position.lat},${city.position.lon}`;
     return this.service.searchCurrencyCondition(locale).subscribe((res) => {
-      console.log(typeof res);
       this.currentCondition = res;
       this.cityObj = city;
       this.service
