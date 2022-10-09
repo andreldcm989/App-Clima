@@ -8,10 +8,4 @@ import { dailyForecast } from '../model/dailyForecast';
 })
 export class DailyComponent {
   @Input() dailyForecast!: dailyForecast;
-  panelOpenState: boolean = false;
-  mouseOver: boolean = false;
-
-  onMouseOverOut() {
-    this.mouseOver = !this.mouseOver;
-  }
 }

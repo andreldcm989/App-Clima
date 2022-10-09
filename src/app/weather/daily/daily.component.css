@@ -68,3 +68,9 @@ input:checked ~ .accordion-content {
   max-height: 100vh;
   padding: 5px;
 }
+.ngTemplate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}

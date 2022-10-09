@@ -1,23 +1,29 @@
-<div class="card-current" *ngIf="cityObj">
+<div class="card-current" *ngIf="cityObj; else now">
   <img
     [src]="srcIcon"
     alt="icone do clima"
     width="60px"
     [title]="currentCondition.results[0].phrase"
   />
-  <p>
+  <h4>
     {{ cityObj.address.municipality }} -
     {{ cityObj.address.countrySubdivision }}
-  </p>
+  </h4>
   <p>
+    <img
+      src="../../assets/icons/temperatura.gif"
+      width="15px"
+      title="temperatura"
+    />
     {{ currentCondition.results[0].temperature.value }}° -
     {{ currentCondition.results[0].phrase }}
   </p>
   <p>
-    Hora: {{ currentCondition.results[0].dateTime | date: "dd/MM/yyyy HH:mm" }}
+    Atualização:
+    {{ currentCondition.results[0].dateTime | date: "dd/MM/yyyy HH:mm" }}
   </p>
 </div>
-<div class="card-current" *ngIf="cityObj">
+<div class="card-current" *ngIf="cityObj; else moreInfo">
   <h3><strong>Mais informações</strong></h3>
   <p>
     <strong>Umidade do ar: </strong>
@@ -41,3 +47,15 @@
     {{ currentCondition.results[0].wind.direction.localizedDescription }}
   </p>
 </div>
+<ng-template #now>
+  <p class="ngTemplate">
+    Aqui você fica sabendo como está o clima na cidade desejada. Busque uma
+    cidade na barra de pesquisas e comece!
+  </p>
+</ng-template>
+<ng-template #moreInfo>
+  <p class="ngTemplate">
+    Tenha acesso às seguintes informações: umidade do ar, visibilidade, raios UV
+    e velocidade do vento.
+  </p>
+</ng-template>

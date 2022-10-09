@@ -1,4 +1,4 @@
-<div class="accordion-wrapper">
+<div class="accordion-wrapper" *ngIf="dailyForecast; else nextDays">
   <div
     class="accordion"
     *ngFor="let daily of dailyForecast.forecasts; let index = index"
@@ -21,3 +21,9 @@
     </div>
   </div>
 </div>
+<ng-template #nextDays>
+  <p class="ngTemplate">
+    Fique por dentro da previsão do tempo para os próximos 5 dias e planeje seus
+    compromissos com mais segurança!
+  </p>
+</ng-template>

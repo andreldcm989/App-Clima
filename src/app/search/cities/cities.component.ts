@@ -23,6 +23,11 @@ export class CitiesComponent {
     }
     return this.citiesService.searchCity(this.cityName).subscribe((res) => {
       this.cities = res.results;
+      if (this.cities.length === 0) {
+        alert(
+          'Nenhuma cidade foi encontrada! Verifique o nome da cidade e tente novamente.'
+        );
+      }
     });
   }
 

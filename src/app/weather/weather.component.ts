@@ -14,8 +14,7 @@ export class WeatherComponent {
   currentCondition!: currentCondition;
   dailyForecast!: dailyForecast;
   srcIcon: string = '';
-  pngIcon = [3, 4];
-  svgIcon = [2];
+  gifIcon = [1, 6, 8, 11, 12, 13, 15, 18, 22, 16, 32, 33, 38];
 
   constructor(private service: WeatherService) {}
 
@@ -24,14 +23,10 @@ export class WeatherComponent {
     return this.service.searchCurrencyCondition(locale).subscribe((res) => {
       this.currentCondition = res;
       this.cityObj = city;
-      if (this.pngIcon.includes(this.currentCondition.results[0].iconCode)) {
-        this.srcIcon = `../../assets/icons/${this.currentCondition.results[0].iconCode}.png`;
-      } else if (
-        this.svgIcon.includes(this.currentCondition.results[0].iconCode)
-      ) {
-        this.srcIcon = `../../assets/icons/${this.currentCondition.results[0].iconCode}.svg`;
-      } else {
+      if (this.gifIcon.includes(this.currentCondition.results[0].iconCode)) {
         this.srcIcon = `../../assets/icons/${this.currentCondition.results[0].iconCode}.gif`;
+      } else {
+        this.srcIcon = `../../assets/icons/${this.currentCondition.results[0].iconCode}.png`;
       }
       this.service
         .searchDailyForecast(locale)

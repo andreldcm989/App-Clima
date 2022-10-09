@@ -173,3 +173,10 @@ h3 {
 li {
   list-style-type: none;
 }
+
+.ngTemplate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
