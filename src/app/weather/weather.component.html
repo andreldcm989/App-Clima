@@ -1,5 +1,5 @@
 <div class="card-current" *ngIf="cityObj">
-  <img src="../../assets/icons/1.gif" alt="" srcset="" width="60px" />
+  <img [src]="srcIcon" [alt]="srcIcon" srcset="" width="60px" />
   <p>
     {{ cityObj.address.municipality }} -
     {{ cityObj.address.countrySubdivision }}
