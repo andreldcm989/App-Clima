@@ -16,8 +16,8 @@ export class CitiesComponent {
     this.findSavedCities();
   }
 
-  searchCity(input: string) {
-    if (input == '') {
+  searchCity() {
+    if (this.cityName == '') {
       alert('O campo de busca não pode ser vazio!');
       return;
     }

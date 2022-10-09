@@ -10,14 +10,10 @@
       (keyup)="clearListCities()"
       placeholder="Digite aqui a cidade"
       #search
-      (keyup.enter)="searchCity(input.value)"
+      (keyup.enter)="searchCity()"
       required
     />
-    <button
-      type="button"
-      (click)="searchCity(input.value)"
-      class="search-button"
-    >
+    <button type="button" (click)="searchCity()" class="search-button">
       <img src="../../../assets/icons/pesquisa-de-lupa.png" width="20px" />
     </button>
   </div>
