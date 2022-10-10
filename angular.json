@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "smartphones:build:production"
+              "browserTarget": "clima:build:production"
             },
             "development": {
-              "browserTarget": "smartphones:build:development"
+              "browserTarget": "clima:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "smartphones:build"
+            "browserTarget": "clima:build"
           }
         },
         "test": {
