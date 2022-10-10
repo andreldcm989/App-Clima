@@ -9,7 +9,6 @@ Criar um aplicativo para consulta da previsão do tempo em uma determinada cidad
 ## Índice:
 
   - [Visão Geral](#visao-geral)
-  - [Link do Projeto](#link-do-projeto)
   - [Screenshots](#screenshots)
   - [Desenvolvimento](#desenvolvimento)
   - [Tecnologias](#tecnologias)
@@ -20,7 +19,7 @@ Criar um aplicativo para consulta da previsão do tempo em uma determinada cidad
 
 ### Deploy
 
-- PROJETO - [App Previsão dp Tempo](#)
+- PROJETO - [App Previsão dp Tempo](https://nice-water-08b608410.2.azurestaticapps.net)
 
 ### Screenshots
 
