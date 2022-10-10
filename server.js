@@ -1,15 +1,12 @@
 const express = require("express");
-
 const app = express();
 
-const appName = "meuapp-climaagora";
-
-const outputPath = `${__dirname}/dist/${appName}`;
-
-app.use(express.static(outputPath));
-
+const PORT = process.env.PORT || 8080;
+app.use(express.static(__dirname + "/dist/meuapp-climaagora"));
 app.get("/*", (req, res) => {
-  res.sendFile(`${outputPath}/index.html`);
+  res.sendFile(__dirname + "/dist/meuapp-climaagora/index.html");
 });
 
-app.listen(process.env.PORT);
+app.listen(PORT, () => {
+  console.log("Servidor iniciado na porta " + PORT);
+});
