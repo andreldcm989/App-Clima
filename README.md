@@ -10,7 +10,6 @@ Criar um aplicativo para consulta da previsão do tempo em uma determinada cidad
 
   - [Visão Geral](#visao-geral)
   - [Screenshots](#screenshots)
-  - [Desenvolvimento](#desenvolvimento)
   - [Tecnologias](#tecnologias)
   - [Aprendizado](#aprendizado)
   - [Autor](#autor)
