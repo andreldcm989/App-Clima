@@ -1,27 +1,57 @@
-# Smartphones
+# App Previsão do tempo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+#### Bem-Vindo! 👋
 
-## Development server
+## Objetivo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Criar um aplicativo para consulta da previsão do tempo em uma determinada cidade, permitindo adicionar cidades aos locais favoritos para consumo posterior. O usuário tem acesso à diversas informações, como temperatura, umidade do ar, visibilidade etc.
 
-## Code scaffolding
+## Índice:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  - [Visão Geral](#visao-geral)
+  - [Link do Projeto](#link-do-projeto)
+  - [Screenshots](#screenshots)
+  - [Desenvolvimento](#desenvolvimento)
+  - [Tecnologias](#tecnologias)
+  - [Aprendizado](#aprendizado)
+  - [Autor](#autor)
 
-## Build
+# Visão Geral
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Deploy
 
-## Running unit tests
+- PROJETO - [App Previsão dp Tempo](#)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Screenshots
 
-## Running end-to-end tests
+##### Página inicial <br>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<img src="./src/assets/img/screenshots/homepage.png" alt="Página inicial" width = 80% title="Página inicial">
 
-## Further help
+##### Realizando uma busca <br>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img src="./src/assets/img/screenshots/search.png" alt="Página inicial" width = 80% title="Página inicial">
+
+##### Previsão do tempo <br>
+
+<img src="./src/assets/img/screenshots/info.png" alt="Página inicial" width = 80% title="Página inicial">
+
+## Tecnologias
+
+- HTML5
+- CSS
+- TypeScript
+- [Angular](Angular - Introduction to the Angular Docs)
+- [API Azure Maps](Azure Mapas visão geral | Microsoft Learn)
+
+### Aprendizado
+
+- Consumo de API usando TypeScript;
+- Comunicação entre componentes Angular;
+- Posicionamento dos elementos em tela.
+- Criação de APP na Azure.
+
+## Autor
+
+- GitHub - [André Cruz](https://github.com/andreldcm989)
+- LinkedIn - [André Cruz](https://www.linkedin.com/in/andreldcruz/)
