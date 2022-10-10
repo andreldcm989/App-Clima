@@ -2,7 +2,7 @@
   <img
     [src]="srcIcon"
     alt="icone do clima"
-    width="60px"
+    width="50px"
     [title]="currentCondition.results[0].phrase"
   />
   <h4>
@@ -18,7 +18,7 @@
     {{ currentCondition.results[0].temperature.value }}° -
     {{ currentCondition.results[0].phrase }}
   </p>
-  <p>
+  <p class="updatedAt">
     Atualização:
     {{ currentCondition.results[0].dateTime | date: "dd/MM/yyyy HH:mm" }}
   </p>

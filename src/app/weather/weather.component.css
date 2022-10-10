@@ -14,9 +14,18 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.card-current h4 {
+  margin: 5px 0;
+}
+
 .card-current p {
   margin: 0;
 }
+
+.updatedAt {
+  font-size: 0.7rem;
+}
+
 .card-lists:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
