@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+
 import { CitiesService } from './cities.service';
 import { results } from './model/city';
 
@@ -12,21 +15,19 @@ export class CitiesComponent {
   savedCities: results[] = [];
   cityName = '';
 
-  constructor(private citiesService: CitiesService) {
+  constructor(private citiesService: CitiesService, private dialog: MatDialog) {
     this.findSavedCities();
   }
 
   searchCity() {
     if (this.cityName == '') {
-      alert('O campo de busca não pode ser vazio!');
+      this.dialog.open(InputEmptyDialogComponent);
       return;
     }
     return this.citiesService.searchCity(this.cityName).subscribe((res) => {
       this.cities = res.results;
       if (this.cities.length === 0) {
-        alert(
-          'Nenhuma cidade foi encontrada! Verifique o nome da cidade e tente novamente.'
-        );
+        this.dialog.open(CityNotFoundDialogComponent);
       }
     });
   }
@@ -46,12 +47,12 @@ export class CitiesComponent {
     this.savedCities = this.findSavedCities();
     let tem = this.savedCities.filter((res) => res.id == city.id);
     if (tem.length > 0) {
-      alert('Esta cidade já existe nos favoritos.');
+      this.dialog.open(CityExistsOnFavComponent);
       return;
     }
     this.savedCities.push(city);
     localStorage.setItem('tbFavoritesCities', JSON.stringify(this.savedCities));
-    alert('Cidade adicionada aos favoritos!');
+    this.dialog.open(CityAddOnFavComponent);
   }
 
   removeCityOnSavedCities(index: number): void {
@@ -67,5 +68,151 @@ export class CitiesComponent {
     this.cities = this.cities.filter(
       (city) => this.cities.indexOf(city) == index
     );
+  }
+}
+
+@Component({
+  template: `<h2 mat-dialog-title>Busca não realizada!</h2>
+    <div mat-dialog-content>
+      <p>O campo de busca não pode ser vazio!</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Ok</button>
+    </div>`,
+  styles: [
+    `
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 20px;
+        border: none;
+        outline: 0;
+        border-radius: 5px;
+        background: rgba(143, 199, 238, 0.8);
+        color: #000000;
+        font-weight: bold;
+      }
+    `,
+  ],
+})
+export class InputEmptyDialogComponent {
+  constructor(
+    public dialogRef: MatDialogRef<InputEmptyDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  template: `<h2 mat-dialog-title>Nenhuma cidade foi encontrada!</h2>
+    <div mat-dialog-content>
+      <p>Verifique o nome da cidade e tente novamente.</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Ok</button>
+    </div>`,
+  styles: [
+    `
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 20px;
+        border: none;
+        outline: 0;
+        border-radius: 5px;
+        background: rgba(143, 199, 238, 0.8);
+        color: #000000;
+        font-weight: bold;
+      }
+    `,
+  ],
+})
+export class CityNotFoundDialogComponent {
+  constructor(
+    public dialogRef: MatDialogRef<CityNotFoundDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  template: `<div mat-dialog-content>
+      <p>Esta cidade já está na lista de favoritos.</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Ok</button>
+    </div>`,
+  styles: [
+    `
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 20px;
+        border: none;
+        outline: 0;
+        border-radius: 5px;
+        background: rgba(143, 199, 238, 0.8);
+        color: #000000;
+        font-weight: bold;
+      }
+    `,
+  ],
+})
+export class CityExistsOnFavComponent {
+  constructor(
+    public dialogRef: MatDialogRef<CityExistsOnFavComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  template: `<div mat-dialog-content>
+      <p>Cidade adicionada aos favoritos com sucesso!</p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Ok</button>
+    </div>`,
+  styles: [
+    `
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 20px;
+        border: none;
+        outline: 0;
+        border-radius: 5px;
+        background: rgba(143, 199, 238, 0.8);
+        color: #000000;
+        font-weight: bold;
+      }
+    `,
+  ],
+})
+export class CityAddOnFavComponent {
+  constructor(
+    public dialogRef: MatDialogRef<CityAddOnFavComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

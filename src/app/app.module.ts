@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 import { SearchModule } from './search/search.module';
 import localePT from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(localePT);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SearchModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, SearchModule, HttpClientModule, BrowserAnimationsModule],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
