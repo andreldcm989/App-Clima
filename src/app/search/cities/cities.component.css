@@ -180,3 +180,15 @@ li {
   justify-content: center;
   margin: 10px;
 }
+
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 10px;
+  }
+  .search input {
+    width: 190px;
+  }
+  .search-button {
+    width: 40px;
+  }
+}
