@@ -3,7 +3,7 @@
     class="accordion"
     *ngFor="let daily of dailyForecast.forecasts; let index = index"
   >
-    <input type="radio" name="radio-a" id="check{{ index }}" checked />
+    <input type="radio" name="radio-a" id="check{{ index }}" />
     <label class="accordion-label" for="check{{ index }}">
       {{ daily.date | date: "E" }} - {{ daily.date | date: "dd/MM" }}, min:
       {{ daily.temperature.minimum.value }}°, máx:
